@@ -1,0 +1,47 @@
+<div class="header">
+  <a> <img class="logo" src="../../../assets/logo-gijima-web02.png"> </a>
+
+  <div class="background-bottom-color"> </div>
+
+  <span class="title">Incident Application</span>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  <div class="bg">
+    <div class="container">
+      <div class="panel-body1">
+        <form [formGroup]="reset" (ngSubmit)="onSubmit()">
+          <h1 style="color:white;">Reset Password</h1>
+          <label class="lbl">enter password</label><br>
+          <input class="input" type="password" formControlName="newPassword" name="password" required><br><br>
+          <!---->div *ngIf="f.newPassword.touched && f.newPassword.invalid" class="alert alert-danger">
+            <!--div *ngIf="f.newPassword.errors.required">Password is required.</!--div>
+          </div-->
+          <label class="lbl">confirm password</label><br>
+          <input class="input" type="password" id="password" formControlName="confirmPassword" name="password" required><br><br>
+          <!-->div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger"></!-div-->
+            <!--div *ngIf="f.confirm_password.errors.required">Password is required.</div-->
+            <!-->div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div-->
+
+            <button type="submit" [disabled]="!reset.valid" mat-button (click)="openDialog()" class="submit" style="margin-right: 10%">SUBMIT</button>
+            <!--button mat-button (click)="openDialog()">Confirm box</button-->
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+
+
+
+
+
+
+
+
+

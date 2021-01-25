@@ -34,7 +34,7 @@ namespace IncidentWebApi
 
             // For Angular Framework
             services.AddEntityFrameworkNpgsql().AddDbContext<IncidentAppDbContext>
-            (opt => opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
+            (opt => opt.UseNpgsql(Configuration.GetConnectionString("IncidentAppConection")));
 
             services.AddCors(options =>
             {

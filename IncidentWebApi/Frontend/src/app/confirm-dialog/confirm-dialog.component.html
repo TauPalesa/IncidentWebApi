@@ -1,0 +1,7 @@
+<div mat-dialog-content class="dialog">
+  {{message}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">cancel</button>
+  <button routerLink="/Login" mat-button [mat-dialog-close]="true" cdkFocusInitial>Login</button>
+</div>

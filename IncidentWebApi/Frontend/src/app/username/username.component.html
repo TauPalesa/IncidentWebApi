@@ -1,0 +1,21 @@
+<div class="bg">
+  <div class="container">
+
+    <div class="panel-body1">
+      <form [formGroup]="userinfo" (ngSubmit)="onSubmit()">
+        <h1 style="color:white;">Forgot password</h1>
+
+        <label>Email</label><br>
+        <input class="input" type="email" formControlName="email" id="email" size="15" name="email" required><br><br>
+        <label>Cellphone</label><br>
+        <input class="input" style="width: 100% " type="tel" formControlName="cellphone" id="Cellphone" name="Cellphone" required><br><br>
+        <!--input name="recover-submit" routerLink="/reset-password" value="Submit" type="submit"-->
+
+        <button type="submit" [disabled]="!userinfo.valid"  routerLink="/reset"  class="submit" value="Submit" style="margin-right: 15%">SUBMIT</button>
+        <!-- <button  routerLink="/next"  class="submit">SUBMIT</button> -->
+      </form>
+
+    </div>
+  </div>
+</div>
+
