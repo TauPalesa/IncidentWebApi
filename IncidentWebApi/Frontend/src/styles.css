@@ -23,7 +23,7 @@ h1 {
 
 .panel-body1 {
   width: 30%;
-  height: 250px;
+  height: 350px;
   background-color: rgb(143, 141, 141);
   display: flex;
   flex-direction: column;
@@ -361,7 +361,7 @@ input[type="email"] :focus {
 
 input[type="email"], textarea
 input[type="password"] {
-  background-color: white;
+  /*background-color: white;*/
 }
 
 input[type="email"],
@@ -405,10 +405,15 @@ input[type="email"], textarea {
   background-color: white;
 }
 
-input[type="text"]:focus,
+/*input[type="text"]:focus,
 input[type="password"]:focus,
-input[type="email"] {
+input[type="email"] {*/
   /*border-bottom: 2px solid white;*/
-  color: black;
+  /*color: black;
   transition: 0.2s ease;
+}*/
+
+.text-danger {
+  
+  color: red;
 }

@@ -13,35 +13,36 @@ import { ConfirmedValidator } from 'src/app/confirm-dialog/confirmed-validator';
 export class ResetComponent implements OnInit {
 
 
-  reset = new FormGroup({
-    //newPassword: new FormControl("", [Validators.required]),
-    //confirmPassword: new FormControl("", [Validators.required]),
+  public reset :FormGroup =new FormGroup
+  ({
+  newPassword: new FormControl("", [Validators.required]),
+  confirmPassword: new FormControl("", [Validators.required]),
   });
 
 
   //submit form
 
-  
-  constructor(public dialog: MatDialog, private fb: FormBuilder) {
 
-        this.reset = fb.group({
-      
-        newPassword: new FormControl("", [Validators.required]),
-        confirmPassword: new FormControl("", [Validators.required]),
-      
-    })
-    Validator: ConfirmedValidator('newPassword', 'confirmPassword')
+  constructor(public dialog: MatDialog, private formBuilder: FormBuilder) {
+
+    //    this.reset = fb.group({
+
+    //    newPassword: new FormControl("", [Validators.required]),
+    //    confirmPassword: new FormControl("", [Validators.required]),
+
+    //})
+    //Validator: ConfirmedValidator('newPassword', 'confirmPassword')
   }
-  get f() {
-    return this.reset.controls;
-  }
+  //get f() {
+  //  return this.reset.controls;
+  //}
 
-  submit() {
-    console.log(this.reset.value);
-  }
+  //OnSubmit() {
+  //  console.log(this.reset.value);
+  //}
 
 
-  
+
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
@@ -58,7 +59,30 @@ export class ResetComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+    this.reset = this.formBuilder.group({
+
+      newPassword: new FormControl("", [Validators.required, Validators.minLength(6)]),
+      confirmPassword: new FormControl("", [Validators.required]),
+
+    }, {
+      Validator: ConfirmedValidator('newPassword', 'confirmPassword')
+    });
+
+  }
+  
+  OnSubmit() {
+    if (this.reset.valid) {
+      alert("success" + this.reset.value);
+    }
   }
 
+  // get f() { return this.reset.controls; }
+
+  //  onSubmit() {
+  //    this.submitted = true;
+
+
+  //}
 }

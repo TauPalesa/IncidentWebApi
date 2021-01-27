@@ -25,7 +25,7 @@ export class ResetpasswordService {
   private _users = new BehaviorSubject<User_Account[] | null>(null);
   users = this._users.asObservable();
   constructor(private http: HttpClient) {
-    this.apiUrl = 'https://localhost:64719/api/Users';
+    this.apiUrl = 'https://localhost:64719/api/authenticate/register';
   }
 
 

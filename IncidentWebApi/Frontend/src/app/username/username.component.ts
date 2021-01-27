@@ -11,11 +11,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./username.component.css']
 })
 export class UsernameComponent implements OnInit {
+  Emailpattern = "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/";
+  mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$";
 
+  public userinfo = new FormGroup({
+   
 
-  userinfo = new FormGroup({
-    email: new FormControl(''),
-    cellphone: new FormControl(''),
+    email: new FormControl("", [Validators.required,]),
+    cellphone: new FormControl("", [Validators.required]),
   });
 
 
@@ -25,7 +28,7 @@ export class UsernameComponent implements OnInit {
 
   }
 
-  constructor(private fb: FormBuilder,
+  constructor(private formbuilder: FormBuilder,
     //private ResetpasswordService: resetpasswordService,
     private router: Router) {
 
@@ -33,6 +36,22 @@ export class UsernameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
 
+
+
+    this.userinfo = this.formbuilder.group({
+
+      email: new FormControl("", [Validators.required, Validators.pattern(this.Emailpattern)]),
+      cellphone: new FormControl("", [Validators.required, Validators.pattern(this.mobNumberPattern)]),
+
+    }, {
+      //Validator: ConfirmedValidator('newPassword', 'confirmPassword')
+    });
+  }
+  OnSubmit() {
+    if (this.userinfo.valid) {
+      alert("success" + this.userinfo.value);
+    }
+
+  }
 }

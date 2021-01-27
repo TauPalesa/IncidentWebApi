@@ -13,29 +13,32 @@
   <div class="bg">
     <div class="container">
       <div class="panel-body1">
-        <form [formGroup]="reset" (ngSubmit)="onSubmit()">
+        <form [formGroup]="reset" (ngSubmit)="OnSubmit()">
           <h1 style="color:white;">Reset Password</h1>
           <label class="lbl">enter password</label><br>
-          <input class="input" type="password" formControlName="newPassword" name="password" required><br><br>
-          <!---->div *ngIf="f.newPassword.touched && f.newPassword.invalid" class="alert alert-danger">
-            <!--div *ngIf="f.newPassword.errors.required">Password is required.</!--div>
-          </div-->
+          <input class="input" type="password" formControlName="newPassword" name="password" required><br>
+          <span class="text-danger" *ngIf="reset.controls['newPassword'].hasError('required') && (reset.controls['newPassword'].dirty || reset.controls['newPassword'].touched)">Password is required.</span><br />
+          <span class="text-danger" *ngIf="reset.controls['newPassword'].hasError('required') && (reset.controls['newPassword'].dirty || reset.controls['newPassword'].touched)">Password must be at least 6 characters.</span>`
+          <br />
           <label class="lbl">confirm password</label><br>
           <input class="input" type="password" id="password" formControlName="confirmPassword" name="password" required><br><br>
-          <!-->div *ngIf="f.confirm_password.touched && f.confirm_password.invalid" class="alert alert-danger"></!-div-->
-            <!--div *ngIf="f.confirm_password.errors.required">Password is required.</div-->
-            <!-->div *ngIf="f.confirm_password.errors.confirmedValidator">Password and Confirm Password must be match.</div-->
-
-            <button type="submit" [disabled]="!reset.valid" mat-button (click)="openDialog()" class="submit" style="margin-right: 10%">SUBMIT</button>
-            <!--button mat-button (click)="openDialog()">Confirm box</button-->
+          <span class="text-danger" *ngIf="reset.controls['confirmPassword'].hasError('required') && (reset.controls['confirmPassword'].dirty || reset.controls['confirmPassword'].touched)">
+            Confirm your password
+          </span><br />
+          <span class="text-danger" *ngIf="reset.controls['confirmPassword'].hasError('ConfirmedValidator') && (reset.controls['confirmPassword'].dirty || reset.controls['confirmPassword'].touched)">
+            Passwords must match
+          </span><br />
+          <button type="submit" class="submit" style="margin-right: 10%">SUBMIT</button>
+          <!-->button mat-button (click)="openDialog()">Confirm box</!-button-->
         </form>
 
       </div>
     </div>
   </div>
+</div>
 
 
-  </div>
+
 
 
 
